@@ -1,0 +1,3 @@
+numpy==v1.15.2
+pandas
+flask

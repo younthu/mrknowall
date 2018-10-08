@@ -8,7 +8,8 @@ class GenderDetector:
     def __init__(self, freqDict,countStatics):
         self.freqDict = freqDict # freqDict is a dict contains frequence of char 
         self.countStatics = countStatics
-        
+
+    # return (score of being a female, score of being a male, the possibility of being a female)
     def detect(self, name): # no family name in name please
         female_index = 0;
         male_index = 0
@@ -22,7 +23,7 @@ class GenderDetector:
         
         fScore = female_index * self.countStatics['M']/self.countStatics['F'];
         mScore = male_index
-        return (fScore,mScore, fScore/(fScore+mScore + 0.00000001))
+        return fScore,mScore, fScore/(fScore+mScore + 0.00000001)
 
     @classmethod
     def load_from_file(cls,file_name):
